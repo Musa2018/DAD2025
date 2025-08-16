@@ -35,7 +35,7 @@ $msg = $_GET['msg'] ?? '';
       <button type="submit"><?php echo $texts[$lang]['login_btn']; ?></button>
     </form>
     <div class="links">
-      <a href="#"><?php echo $texts[$lang]['forgot']; ?></a> | 
+      <a href="auth/forgot.php"><?php echo $texts[$lang]['forgot']; ?></a> | 
       <a href="auth/signup.php"><?php echo $texts[$lang]['register']; ?></a>
     </div>
     <div class="lang">

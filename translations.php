@@ -46,6 +46,15 @@ $texts = [
         "verify_code_title" => "رمز التحقق DAD_APP",
         "verify_code_body" => "رمز التحقق: ",
         "success_word" => "نجاح",
+        "reset_code_title" => "كود استعادة كلمة المرور",
+        "reset_code_body" => "كود الاستعادة: ",
+        "reset_code_sent" => "تم إرسال كود الاستعادة إلى بريدك الإلكتروني.",
+        "email_not_found" => "البريد الإلكتروني غير موجود.",
+        "send_reset_code" => "إرسال كود الاستعادة",
+        "reset_code_wrong" => "رمز الاستعادة غير صحيح",
+        "verify_btn" => "تأكيد",
+        'passwords_not_match' => 'كلمتا المرور غير متطابقتين',
+        'password_reset_success' => 'تم تغيير كلمة المرور بنجاح. يمكنك الآن تسجيل الدخول.',
     ],
     "en" => [
         "login_title" => "Login",
@@ -72,5 +81,12 @@ $texts = [
         "verify_code_title" => "DAD_APP Verification Code",
         "verify_code_body" => "Verification code: ",
         "success_word" => "success",
+        "reset_code_title" => "Password Reset Code",
+        "reset_code_body" => "Reset code: ",
+        "reset_code_sent" => "Reset code sent to your email.",
+        "email_not_found" => "Email not found.",
+        "send_reset_code" => "Send Reset Code",
+        'passwords_not_match' => 'Passwords do not match',
+        'password_reset_success' => 'Password changed successfully. You can now log in.',
     ]
 ];
