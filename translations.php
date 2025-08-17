@@ -57,7 +57,14 @@ $texts = [
         'password_reset_success' => 'تم تغيير كلمة المرور بنجاح. يمكنك الآن تسجيل الدخول.',
          'governorate' => 'المحافظة',
         'select_governorate' => 'اختر المحافظة',
-        'choose_governorate' => 'اختر المحافظة'
+        'choose_governorate' => 'اختر المحافظة',
+        "dashboard" => "لوحة التحكم",
+        "farmers" => "المزارعين",
+        "farms" => "المزرعة",
+        "damage_form" => "استمارة الضرر",
+        "docs" => "التوثيق",
+        "reports" => "التقارير",
+        "welcome_dashboard" => "مرحباً بك في لوحة التحكم",
     ],
     "en" => [
         "login_title" => "Login",
@@ -93,6 +100,13 @@ $texts = [
         'password_reset_success' => 'Password changed successfully. You can now log in.',
         'governorate' => 'Governorate',
         'select_governorate' => 'Select Governorate',
-        'choose_governorate' => 'Choose Governorate'
+        'choose_governorate' => 'Choose Governorate',
+        "dashboard" => "Dashboard",
+    "farmers" => "Farmers",
+    "farms" => "Farms",
+    "damage_form" => "Damage Form",
+    "docs" => "Documentation",
+    "reports" => "Reports",
+    "welcome_dashboard" => "Welcome to Dashboard"
     ]
 ];
