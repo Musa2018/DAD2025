@@ -1,7 +1,9 @@
 <?php
 if (!isset($_SESSION)) session_start();
 require_once "translations.php";
-$msg = $_GET['msg'] ?? '';
+$lang = $_SESSION['lang'] ?? 'ar';
+$msgKey = $_GET['msg'] ?? '';
+$msg = $texts[$lang][$msgKey] ?? $msgKey;
 ?>
 <!doctype html>
 <html lang="<?php echo $lang; ?>" dir="<?php echo $lang === 'ar' ? 'rtl' : 'ltr'; ?>">
@@ -11,7 +13,7 @@ $msg = $_GET['msg'] ?? '';
   <title><?php echo $texts[$lang]['login_title']; ?></title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
-<body>
+<body class="login">
   <div class="login-container">
     <h2><?php echo $texts[$lang]['login_title']; ?></h2>
 

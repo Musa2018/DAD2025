@@ -3,7 +3,9 @@ if (!isset($_SESSION)) session_start();
 
 include "../db.php";
 include "../functions.php";
+if (!isset($_SESSION)) session_start();
 
+$lang = $_SESSION['lang'] ?? 'ar';
 // فلترة البريد وكلمة المرور
 $email = filterRequest("email");
 $password = filterRequest("password");
@@ -20,9 +22,9 @@ if ($user && password_verify($password, $user['users_password'])) {
     $_SESSION['user_name']  = $user['users_name'];
     $_SESSION['user_email'] = $user['users_email'];
 
-    header("Location: ../dashboard.php");
+    header("Location: ../pages/dashboard.php");
     exit;
 } else {
-    header("Location: ../index.php?msg=" . urlencode("بيانات الدخول غير صحيحة"));
+    header("Location: ../index.php?msg=error_login" );
     exit;
 }
