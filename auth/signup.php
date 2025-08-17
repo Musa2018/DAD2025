@@ -12,6 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $phone    = filterRequest("phone");
     $verfiycode = rand(10000, 99999);
 
+    // استلام قيمة المحافظة (قد تكون فارغة أو NULL)
+    $governorates_id = isset($_POST['governorates_id']) && $_POST['governorates_id'] !== '' 
+        ? $_POST['governorates_id'] 
+        : null;
+
     if (empty($username) || empty($password) || empty($email) || empty($phone)) {
         $msg = $texts[$lang]['all_fields_required'];
     } else {
@@ -29,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 "users_email"      => $email,
                 "users_phone"      => $phone,
                 "users_verifycode" => $verfiycode,
+                "governorates_id"  => $governorates_id
             );
             if (insertData("users", $data)) {
                 // إرسال كود التحقق إلى البريد الإلكتروني
@@ -58,7 +64,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="signup-container">
         <h2><?php echo $texts[$lang]['register']; ?></h2>
         <?php if($msg): ?>
-            <div class="msg<?php echo (strpos($msg, $texts[$lang]['success_word']) !== false) ? ' success' : ''; ?>"><?php echo htmlspecialchars($msg); ?></div>
+            <div class="msg<?php echo (strpos($msg, $texts[$lang]['success_word']) !== false) ? ' success' : ''; ?>">
+                <?php echo htmlspecialchars($msg); ?>
+            </div>
         <?php endif; ?>
         <form action="" method="post" autocomplete="off">
             <div class="form-group">
@@ -74,23 +82,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="text" name="phone" id="phone" required value="<?php echo isset($phone) ? htmlspecialchars($phone) : ''; ?>">
             </div>
             <div class="form-group">
-              <label for="password"><?php echo $texts[$lang]['password']; ?></label>
-              <input type="password" name="password" id="password" required>
-              <span class="eye-icon" onclick="togglePass()">
-                <svg id="eyeIcon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <ellipse cx="12" cy="12" rx="9" ry="5"></ellipse>
-                  <circle cx="12" cy="12" r="2"></circle>
-                </svg>
-              </span>
+                <label for="password"><?php echo $texts[$lang]['password']; ?></label>
+                <input type="password" name="password" id="password" required>
+                <span class="eye-icon" onclick="togglePass()">
+                    <svg id="eyeIcon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <ellipse cx="12" cy="12" rx="9" ry="5"></ellipse>
+                        <circle cx="12" cy="12" r="2"></circle>
+                    </svg>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="governorates_id"><?php echo $texts[$lang]['governorate']; ?></label>
+                <select name="governorates_id" id="governorates_id">
+                    <option value=""><?php echo $texts[$lang]['choose_governorate']; ?></option>
+                    <?php
+                    $govs = $con->query("SELECT governorates_id, governorates_name FROM governorates")->fetchAll(PDO::FETCH_ASSOC);
+                    foreach($govs as $gov){
+                        $selected = (isset($governorates_id) && $governorates_id == $gov['governorates_id']) ? 'selected' : '';
+                        echo '<option value="'.$gov['governorates_id'].'" '.$selected.'>'.$gov['governorates_name'].'</option>';
+                    }
+                    ?>
+                </select>
             </div>
             <button type="submit"><?php echo $texts[$lang]['register_btn']; ?></button>
         </form>
         <div class="links">
             <a href="../index.php"><?php echo $texts[$lang]['login_title']; ?></a>
         </div>
-       <div class="lang">
-      <a href="../lang.php"><?php echo $texts[$lang]['switch_lang']; ?></a>
-    </div>
+        <div class="lang">
+            <a href="../lang.php"><?php echo $texts[$lang]['switch_lang']; ?></a>
+        </div>
     </div>
     <script>
     function togglePass(){
@@ -104,6 +125,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         eye.innerHTML = '<ellipse cx="12" cy="12" rx="9" ry="5" fill="none" stroke="#888" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="none" stroke="#888" stroke-width="2"/>';
       }
     }
-  </script>
+    </script>
 </body>
 </html>

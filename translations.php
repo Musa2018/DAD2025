@@ -55,6 +55,9 @@ $texts = [
         "verify_btn" => "تأكيد",
         'passwords_not_match' => 'كلمتا المرور غير متطابقتين',
         'password_reset_success' => 'تم تغيير كلمة المرور بنجاح. يمكنك الآن تسجيل الدخول.',
+         'governorate' => 'المحافظة',
+        'select_governorate' => 'اختر المحافظة',
+        'choose_governorate' => 'اختر المحافظة'
     ],
     "en" => [
         "login_title" => "Login",
@@ -88,5 +91,8 @@ $texts = [
         "send_reset_code" => "Send Reset Code",
         'passwords_not_match' => 'Passwords do not match',
         'password_reset_success' => 'Password changed successfully. You can now log in.',
+        'governorate' => 'Governorate',
+        'select_governorate' => 'Select Governorate',
+        'choose_governorate' => 'Choose Governorate'
     ]
 ];
