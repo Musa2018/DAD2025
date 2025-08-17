@@ -26,10 +26,11 @@ $userName = $_SESSION['user_name'] ?? $_SESSION['user_email'] ?? 'المستخد
 </header>
 
 <!-- Sidebar -->
+ <button class="toggle-sidebar">☰</button>
 <div class="sidebar">
 <button class="toggle-sidebar">☰</button>
 
-    <h3><?php echo $texts[$lang]['dashboard'] ?? 'لوحة التحكم'; ?></h3>
+    
     <ul>
         <li><a href="#" data-page="farmers"><i class="fas fa-users"></i><span><?php echo $texts[$lang]['farmers'] ?? 'المزارعين'; ?></span></a></li>
         <li><a href="#" data-page="farms"><i class="fas fa-tractor"></i><span><?php echo $texts[$lang]['farms'] ?? 'المزرعة'; ?></span></a></li>
@@ -41,21 +42,9 @@ $userName = $_SESSION['user_name'] ?? $_SESSION['user_email'] ?? 'المستخد
 <!-- Main content -->
 <div class="main-content" id="content">
     
-
     <!-- محتوى افتراضي عند فتح الصفحة لأول مرة -->
     <h2><?php echo $texts[$lang]['welcome_dashboard'] ?? 'مرحباً بك في لوحة التحكم'; ?>, <?php echo htmlspecialchars($userName); ?></h2>
-    <div class="card">
-        <h3><?php echo $texts[$lang]['farmers'] ?? 'المزارعين'; ?></h3>
-        <p>هنا يمكنك إدارة جميع بيانات المزارعين.</p>
-    </div>
-    <div class="card">
-        <h3><?php echo $texts[$lang]['farms'] ?? 'المزرعة'; ?></h3>
-        <p>هنا يمكنك إدارة بيانات المزارع والمناطق الزراعية.</p>
-    </div>
-    <div class="card">
-        <h3><?php echo $texts[$lang]['damage_form'] ?? 'استمارة الضرر'; ?></h3>
-        <p>إدارة جميع استمارات الأضرار والتقارير.</p>
-    </div>
+    
 </div>
 
 <!-- JavaScript -->

@@ -191,3 +191,46 @@ body[dir="rtl"] .lang { left: 1rem; right: auto; }
     .main-content { margin-top: 50px; padding: 1rem; }
     .card { padding: 1rem; }
 }
+.sidebar {
+    width: 250px;
+    background: #333;
+    color: #fff;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease;
+}
+
+.sidebar.collapsed {
+    transform: translateX(-100%);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.sidebar ul li a i {
+    margin-right: 10px;
+}
+
+/* عرض القائمة على الهواتف */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.show {
+        transform: translateX(0);
+    }
+}
