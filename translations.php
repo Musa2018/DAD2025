@@ -22,6 +22,7 @@ $lang = $_SESSION['lang'];
 
 $texts = [
     "ar" => [
+        // تسجيل الدخول
         "login_title" => "تسجيل الدخول",
         "email" => "البريد الإلكتروني أو اسم المستخدم",
         "password" => "كلمة المرور",
@@ -36,6 +37,8 @@ $texts = [
         "must_login" => "يجب تسجيل الدخول أولاً",
         "logout_success" => "تم تسجيل الخروج بنجاح",
         "switch_lang" => "English",
+
+        // التسجيل
         "username" => "اسم المستخدم",
         "phone" => "رقم الجوال",
         "register_btn" => "تسجيل",
@@ -53,20 +56,33 @@ $texts = [
         "send_reset_code" => "إرسال كود الاستعادة",
         "reset_code_wrong" => "رمز الاستعادة غير صحيح",
         "verify_btn" => "تأكيد",
-        'passwords_not_match' => 'كلمتا المرور غير متطابقتين',
-        'password_reset_success' => 'تم تغيير كلمة المرور بنجاح. يمكنك الآن تسجيل الدخول.',
-         'governorate' => 'المحافظة',
-        'select_governorate' => 'اختر المحافظة',
-        'choose_governorate' => 'اختر المحافظة',
+        "passwords_not_match" => "كلمتا المرور غير متطابقتين",
+        "password_reset_success" => "تم تغيير كلمة المرور بنجاح. يمكنك الآن تسجيل الدخول.",
+
+        // الحقول
+        "governorate" => "المحافظة",
+        "select_governorate" => "اختر المحافظة",
+        "choose_governorate" => "اختر المحافظة",
+
+        // لوحة التحكم والقوائم
         "dashboard" => "لوحة التحكم",
         "farmers" => "المزارعين",
-        "farms" => "المزرعة",
+        "farms" => "المزارع",
         "damage_form" => "استمارة الضرر",
         "docs" => "التوثيق",
         "reports" => "التقارير",
         "welcome_dashboard" => "مرحباً بك في لوحة التحكم",
+
+        // محتوى الصفحات
+        "farmers_page_desc" => "هذه صفحة إدارة بيانات المزارعين.",
+        "farms_page_desc" => "هذه صفحة إدارة بيانات المزارع.",
+        "damage_page_desc" => "هذه صفحة تعبئة استمارات الضرر الخاصة بالمزارعين.",
+        "docs_page_desc" => "هنا يمكنك الاطلاع على الوثائق والإرشادات.",
+        "reports_page_desc" => "هذه صفحة عرض وإدارة التقارير.",
     ],
+
     "en" => [
+        // Login
         "login_title" => "Login",
         "email" => "Email or Username",
         "password" => "Password",
@@ -81,6 +97,8 @@ $texts = [
         "must_login" => "You must login first",
         "logout_success" => "Logged out successfully",
         "switch_lang" => "العربية",
+
+        // Register
         "username" => "Username",
         "phone" => "Phone",
         "register_btn" => "Register",
@@ -96,17 +114,30 @@ $texts = [
         "reset_code_sent" => "Reset code sent to your email.",
         "email_not_found" => "Email not found.",
         "send_reset_code" => "Send Reset Code",
-        'passwords_not_match' => 'Passwords do not match',
-        'password_reset_success' => 'Password changed successfully. You can now log in.',
-        'governorate' => 'Governorate',
-        'select_governorate' => 'Select Governorate',
-        'choose_governorate' => 'Choose Governorate',
+        "reset_code_wrong" => "Invalid reset code",
+        "verify_btn" => "Verify",
+        "passwords_not_match" => "Passwords do not match",
+        "password_reset_success" => "Password changed successfully. You can now log in.",
+
+        // Fields
+        "governorate" => "Governorate",
+        "select_governorate" => "Select Governorate",
+        "choose_governorate" => "Choose Governorate",
+
+        // Dashboard & Menus
         "dashboard" => "Dashboard",
-    "farmers" => "Farmers",
-    "farms" => "Farms",
-    "damage_form" => "Damage Form",
-    "docs" => "Documentation",
-    "reports" => "Reports",
-    "welcome_dashboard" => "Welcome to Dashboard"
+        "farmers" => "Farmers",
+        "farms" => "Farms",
+        "damage_form" => "Damage Form",
+        "docs" => "Documentation",
+        "reports" => "Reports",
+        "welcome_dashboard" => "Welcome to Dashboard",
+
+        // Pages content
+        "farmers_page_desc" => "This is the farmers management page.",
+        "farms_page_desc" => "This is the farms management page.",
+        "damage_page_desc" => "This page is for filling damage forms for farmers.",
+        "docs_page_desc" => "Here you can view documents and guides.",
+        "reports_page_desc" => "This is the reports management page.",
     ]
 ];

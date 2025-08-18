@@ -4,6 +4,9 @@ require_once "../functions.php";
 if (!isset($_SESSION)) session_start();
 checkAuthenticate();
 $userName = $_SESSION['user_name'] ?? $_SESSION['user_email'] ?? 'المستخدم';
+
+// الحصول على الصفحة المطلوبة من الرابط (GET)
+$currentPage = $_GET['page'] ?? null;
 ?>
 <!doctype html>
 <html lang="<?php echo $lang; ?>" dir="<?php echo $lang === 'ar' ? 'rtl' : 'ltr'; ?>">
@@ -13,6 +16,7 @@ $userName = $_SESSION['user_name'] ?? $_SESSION['user_email'] ?? 'المستخد
     <title><?php echo $texts[$lang]['dashboard'] ?? 'لوحة التحكم'; ?></title>
     <link rel="stylesheet" href="/dad/assets/style.css">
     <link rel="stylesheet" href="/dad/assets/fontawesome/css/all.min.css">
+    
 </head>
 <body class="dashboard">
 
@@ -22,7 +26,7 @@ $userName = $_SESSION['user_name'] ?? $_SESSION['user_email'] ?? 'المستخد
         <a href="/dad/auth/logout.php" class="logout-btn" title="<?php echo $texts[$lang]['logout'] ?? 'تسجيل الخروج'; ?>">🔓</a>
     </div>
 </header>
-
+<div class="dashboard-container">
 <div class="sidebar">
     <ul>
         <li>
@@ -35,32 +39,48 @@ $userName = $_SESSION['user_name'] ?? $_SESSION['user_email'] ?? 'المستخد
         <li><a href="#" data-page="reports"><i class="fas fa-chart-line"></i><span><?php echo $texts[$lang]['reports'] ?? 'التقارير'; ?></span></a></li>
     </ul>
 </div>
-<div class="main-content" id="content">
-    <h2><?php echo $texts[$lang]['welcome_dashboard'] ?? 'مرحباً بك في لوحة التحكم'; ?>, <?php echo htmlspecialchars($userName); ?></h2>
-</div>
 
+<div class="main-content" id="content">
+    <?php if (!$currentPage): ?>
+        <div class="cards-grid">
+            <div class="card">
+                <h2><?php echo $texts[$lang]['welcome_dashboard'] ?? 'مرحباً بك في لوحة التحكم'; ?>, <?php echo htmlspecialchars($userName); ?></h2>
+                <p><?php echo $texts[$lang]['dashboard_intro'] ?? 'يمكنك إدارة جميع البيانات الخاصة بالمزارعين والمزارع والتقارير من هنا.'; ?></p>
+            </div>
+        </div>
+    <?php endif; ?>
+</div>
+</div>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const contentDiv = document.getElementById('content');
     const sidebarLinks = document.querySelectorAll('.sidebar a');
     const toggleBtn = document.querySelector('.toggle-sidebar');
     const sidebar = document.querySelector('.sidebar');
-    const mainContent = document.querySelector('.main-content');
 
     function loadPage(page, addToHistory = true) {
         fetch('/dad/pages/' + page + '.php')
             .then(res => res.text())
             .then(html => {
-                contentDiv.innerHTML = html;
+                // لف المحتوى داخل div.cards-grid > div.card
+                contentDiv.innerHTML = '<div class="cards-grid"><div class="card">' + html + '</div></div>';
                 setActiveLink(page);
                 if(addToHistory) history.pushState({page:page}, '', '?page=' + page);
             })
             .catch(err => {
-                contentDiv.innerHTML = '<p>حدث خطأ أثناء تحميل المحتوى.</p>';
+                contentDiv.innerHTML = '<div class="cards-grid"><div class="card"><p>حدث خطأ أثناء تحميل المحتوى.</p></div></div>';
                 console.error(err);
             });
     }
-
+function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle('collapsed');
+    
+    // إضافة/إزالة الطبقة active للوضع المدمج
+    if (window.innerWidth <= 768) {
+        sidebar.classList.toggle('active');
+    }
+}
     function setActiveLink(page){
         sidebarLinks.forEach(l => l.classList.remove('active'));
         const activeLink = Array.from(sidebarLinks).find(l => l.dataset.page === page);
@@ -82,7 +102,13 @@ document.addEventListener("DOMContentLoaded", () => {
             loadPage(link.dataset.page);
         });
     });
+
+    const initialPage = "<?php echo $currentPage; ?>";
+    if(initialPage){
+        loadPage(initialPage, false);
+    }
 });
 </script>
+
 </body>
 </html>
