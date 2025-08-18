@@ -16,8 +16,6 @@ $userName = $_SESSION['user_name'] ?? $_SESSION['user_email'] ?? 'المستخد
 </head>
 <body class="dashboard">
 
-<!-- Header -->
-<!-- HTML -->
 <header class="top-header">
     <div class="header-actions">
         <a href="/dad/lang.php" class="lang-btn" title="<?php echo $texts[$lang]['switch_lang']; ?>">🌐</a>
@@ -25,13 +23,11 @@ $userName = $_SESSION['user_name'] ?? $_SESSION['user_email'] ?? 'المستخد
     </div>
 </header>
 
-<!-- Sidebar -->
- <button class="toggle-sidebar">☰</button>
 <div class="sidebar">
-<button class="toggle-sidebar">☰</button>
-
-    
     <ul>
+        <li>
+            <button class="toggle-sidebar"><i class="fas fa-bars"></i></button>
+        </li>
         <li><a href="#" data-page="farmers"><i class="fas fa-users"></i><span><?php echo $texts[$lang]['farmers'] ?? 'المزارعين'; ?></span></a></li>
         <li><a href="#" data-page="farms"><i class="fas fa-tractor"></i><span><?php echo $texts[$lang]['farms'] ?? 'المزرعة'; ?></span></a></li>
         <li><a href="#" data-page="damage"><i class="fas fa-exclamation-triangle"></i><span><?php echo $texts[$lang]['damage_form'] ?? 'استمارة الضرر'; ?></span></a></li>
@@ -39,20 +35,17 @@ $userName = $_SESSION['user_name'] ?? $_SESSION['user_email'] ?? 'المستخد
         <li><a href="#" data-page="reports"><i class="fas fa-chart-line"></i><span><?php echo $texts[$lang]['reports'] ?? 'التقارير'; ?></span></a></li>
     </ul>
 </div>
-<!-- Main content -->
 <div class="main-content" id="content">
-    
-    <!-- محتوى افتراضي عند فتح الصفحة لأول مرة -->
     <h2><?php echo $texts[$lang]['welcome_dashboard'] ?? 'مرحباً بك في لوحة التحكم'; ?>, <?php echo htmlspecialchars($userName); ?></h2>
-    
 </div>
 
-<!-- JavaScript -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const contentDiv = document.getElementById('content');
     const sidebarLinks = document.querySelectorAll('.sidebar a');
     const toggleBtn = document.querySelector('.toggle-sidebar');
+    const sidebar = document.querySelector('.sidebar');
+    const mainContent = document.querySelector('.main-content');
 
     function loadPage(page, addToHistory = true) {
         fetch('/dad/pages/' + page + '.php')
@@ -74,21 +67,20 @@ document.addEventListener("DOMContentLoaded", () => {
         if(activeLink) activeLink.classList.add('active');
     }
 
+    toggleBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('collapsed');
+    });
+
+    window.addEventListener('popstate', e => {
+        const page = e.state?.page || null;
+        if(page) loadPage(page, false);
+    });
+
     sidebarLinks.forEach(link => {
         link.addEventListener('click', e => {
             e.preventDefault();
             loadPage(link.dataset.page);
         });
-    });
-
-    toggleBtn.addEventListener('click', () => {
-    const sidebar = document.querySelector('.sidebar');
-    sidebar.classList.toggle('collapsed');
-});
-
-    window.addEventListener('popstate', e => {
-        const page = e.state?.page || null;
-        if(page) loadPage(page, false);
     });
 });
 </script>

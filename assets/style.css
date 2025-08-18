@@ -1,14 +1,5 @@
 /* ==============================
-   Base & Body
-============================== */
-body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    min-height: 100vh;
-}
-
-/* ==============================
-   Login / Signup Pages
+    Login / Signup Pages
 ============================== */
 body.login, body.signup {
     background: linear-gradient(120deg, #667eea 0%, #764ba2 100%);
@@ -38,7 +29,7 @@ input {
     box-sizing: border-box;
 }
 input[type="password"], input[type="text"], input[type="email"] {
-    padding-left: 40px; /* مساحة للأيقونة */
+    padding-left: 40px;
 }
 body[dir="rtl"] input[type="password"],
 body[dir="rtl"] input[type="text"],
@@ -85,7 +76,7 @@ button:hover { background: #5563c1; }
 .links a { color: #667eea; text-decoration: none; }
 
 /* ==============================
-   Dashboard Pages
+    Dashboard Pages
 ============================== */
 body.dashboard {
     display: flex;
@@ -98,8 +89,18 @@ body[dir="ltr"] { direction: ltr; text-align: left; }
 .main-content {
     flex: 1;
     padding: 2rem;
-    margin-top: 60px; /* مساحة أسفل الهيدر */
-    transition: margin-left 0.3s;
+    margin-top: 60px;
+    transition: margin-left 0.3s ease, margin-right 0.3s ease;
+}
+
+body[dir="ltr"] .main-content {
+    margin-left: 260px;
+    margin-right: 0;
+}
+
+body[dir="rtl"] .main-content {
+    margin-right: 260px;
+    margin-left: 0;
 }
 
 /* Cards */
@@ -117,14 +118,12 @@ body[dir="ltr"] { direction: ltr; text-align: left; }
 .top-header {
     position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
     height: 50px;
     background-color: #3f51b5;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-   
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     z-index: 1000;
 }
@@ -182,28 +181,31 @@ body[dir="rtl"] .lang { left: 1rem; right: auto; }
     font-weight: bold;
 }
 
-/* ==============================
-   Responsive
-============================== */
-@media (max-width: 600px) {
-    .top-header { height: 50px; padding: 0 10px; }
-    .header-actions a { width: 35px; height: 35px; font-size: 18px; margin-left: 5px; }
-    .main-content { margin-top: 50px; padding: 1rem; }
-    .card { padding: 1rem; }
-}
+/* Sidebar */
 .sidebar {
     width: 250px;
-    background: #333;
+    background: #3f51b5;
     color: #fff;
-    height: 100vh;
+    height: calc(100vh - 50px);
     position: fixed;
-    top: 0;
+    top: 50px;
+    z-index: 999;
+    transition: width 0.3s ease;
+    overflow: hidden;
+}
+
+/* Sidebar Position for LTR (default) */
+body[dir="ltr"] .sidebar {
     left: 0;
-    transition: transform 0.3s ease;
+}
+
+/* Sidebar Position for RTL */
+body[dir="rtl"] .sidebar {
+    right: 0;
 }
 
 .sidebar.collapsed {
-    transform: translateX(-100%);
+    width: 60px;
 }
 
 .sidebar ul {
@@ -212,25 +214,97 @@ body[dir="rtl"] .lang { left: 1rem; right: auto; }
     margin: 0;
 }
 
-.sidebar ul li a {
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+/* New combined styling for links and button */
+.sidebar ul li a,
+.sidebar ul li button {
     display: flex;
     align-items: center;
     padding: 10px 20px;
     color: #fff;
     text-decoration: none;
+    transition: background-color 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
 }
 
+.sidebar ul li a:hover,
+.sidebar ul li a.active,
+.sidebar ul li button:hover {
+    background-color: #555;
+}
+
+/* Icon and text alignment */
 .sidebar ul li a i {
     margin-right: 10px;
 }
 
-/* عرض القائمة على الهواتف */
+body[dir="rtl"] .sidebar ul li a i {
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+/* Hide text and center icon when collapsed */
+.sidebar.collapsed ul li a span {
+    display: none;
+}
+.sidebar.collapsed ul li a,
+.sidebar.collapsed ul li button {
+    justify-content: center;
+}
+.sidebar.collapsed ul li a i {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.toggle-sidebar {
+    position: relative;
+    font-size: 1.5rem;
+}
+
+/* ==============================
+    Responsive
+============================== */
 @media (max-width: 768px) {
+    /* Hide the text */
+    .sidebar ul li a span {
+        display: none;
+    }
     .sidebar {
+        width: 60px;
+    }
+    .main-content {
+        margin-left: 60px;
+        margin-right: 0;
+    }
+    body[dir="rtl"] .main-content {
+        margin-left: 0;
+        margin-right: 60px;
+    }
+
+    /* Change sidebar to full hide on small screens */
+    body[dir="ltr"] .sidebar.collapsed {
         transform: translateX(-100%);
     }
 
-    .sidebar.show {
-        transform: translateX(0);
+    body[dir="rtl"] .sidebar.collapsed {
+        transform: translateX(100%);
+    }
+
+    /* Adjust button alignment on small screens */
+    .sidebar ul li button {
+        justify-content: center;
+    }
+
+    .main-content {
+        margin-left: 0;
+        margin-right: 0;
     }
 }
