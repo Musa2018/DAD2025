@@ -19,7 +19,7 @@ $texts = [
         'forgot' => 'نسيان كلمة المرور',
         'email' => 'البريد الإلكتروني',
         'password' => 'كلمة المرور',
-        'name' => 'الاسم',
+        'username' => 'اسم المستخدم',
         'phone' => 'رقم الهاتف',
         'submit' => 'إرسال',
         'cancel' => 'إلغاء',
@@ -51,7 +51,10 @@ $texts = [
         'damage_page_desc' => 'إدارة استمارات الأضرار الزراعية',
         'farmers_page_desc' => 'إدارة بيانات المزارعين',
         'reports_page_desc' => 'إدارة التقارير',
-        'farms_page_desc' => 'إدارة بيانات المزارع'
+        'farms_page_desc' => 'إدارة بيانات المزارع',
+        'governorate' => 'المحافظة',
+        'choose_governorate' => 'اختر المحافظة',
+        'register_btn' => 'تسجيل'
     ],
     'en' => [
         'app_title' => 'Agricultural Damage Management System',
@@ -67,7 +70,7 @@ $texts = [
         'forgot' => 'Forgot Password',
         'email' => 'Email',
         'password' => 'Password',
-        'name' => 'Name',
+        'username' => 'Username',
         'phone' => 'Phone',
         'submit' => 'Submit',
         'cancel' => 'Cancel',
@@ -99,7 +102,10 @@ $texts = [
         'damage_page_desc' => 'Agricultural damage forms management',
         'farmers_page_desc' => 'Manage farmers data',
         'reports_page_desc' => 'Manage reports data',
-        'farms_page_desc' => 'Manage farms data'
+        'farms_page_desc' => 'Manage farms data',
+        'governorate' => 'Governorate',
+        'choose_governorate' => 'Choose Governorate',
+        'register_btn' => 'Register'
     ]
 ];
 ?>
