@@ -1,7 +1,9 @@
 <?php
-require_once "../translations.php";
-include "../db.php";
-include "../functions.php";
+$notAuth = true;
+$page_title = "نسيان كلمة المرور";
+$base_url = "../";
+
+require_once "../includes/header.php";
 
 $msg = "";
 

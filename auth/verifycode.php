@@ -1,6 +1,9 @@
 <?php
-include "../db.php";
-include "../functions.php";
+$notAuth = true;
+$page_title = "تأكيد الرمز";
+$base_url = "../";
+
+require_once "../includes/header.php";
 
 $msg = "";
 $email = filterRequest("email");

@@ -1,7 +1,9 @@
 <?php
-require_once "../translations.php";
-include "../db.php";
-include "../functions.php";
+$notAuth = true;
+$page_title = "إنشاء حساب جديد";
+$base_url = "../";
+
+require_once "../includes/header.php";
 
 $msg = "";
 
