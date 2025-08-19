@@ -364,6 +364,38 @@ body[dir="rtl"] .page ul {
         .cards-grid .card:hover {
             transform: translateY(-5px); /* تأثير التحويم */
         }
+        .cards-grid .card i {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+            display: block;
+            text-align: center;
+        }
+        .cards-grid .card h3 {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .cards-grid .card p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        .cards-grid .card .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            transition: background 0.2s;
+        }
+        .cards-grid .card .btn:hover {
+            background: #5563c1;
+        }
 
 /* ==============================
     Responsive

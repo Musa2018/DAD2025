@@ -58,6 +58,11 @@ $texts = [
         'damages' => 'الأضرار',
         'reports' => 'التقارير',
         'settings' => 'الإعدادات',
+        'docs' => 'التوثيق',
+        'damage_form' => 'استمارة الضرر',
+        'welcome_dashboard' => 'مرحباً بك في لوحة التحكم',
+        'dashboard_intro' => 'يمكنك إدارة جميع البيانات الخاصة بالمزارعين والمزارع والتقارير من هنا.',
+        'docs_page_desc' => 'صفحة التوثيق والمستندات الرسمية',
     ],
     
     'en' => [
@@ -109,6 +114,11 @@ $texts = [
         'damages' => 'Damages',
         'reports' => 'Reports',
         'settings' => 'Settings',
+        'docs' => 'Documentation',
+        'damage_form' => 'Damage Form',
+        'welcome_dashboard' => 'Welcome to Dashboard',
+        'dashboard_intro' => 'You can manage all data related to farmers, farms and reports from here.',
+        'docs_page_desc' => 'Documentation and official documents page',
     ]
 ];
 ?>
