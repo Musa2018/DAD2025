@@ -14,8 +14,84 @@ $currentPage = $_GET['page'] ?? null;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $texts[$lang]['dashboard'] ?? 'لوحة التحكم'; ?></title>
-    <link rel="stylesheet" href="/dad/assets/style.css">
-    <link rel="stylesheet" href="/dad/assets/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
+</head>
+<body class="dashboard">
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="header-content">
+            <h1><?php echo $texts[$lang]['app_title']; ?></h1>
+            <div class="user-info">
+                <span><?php echo $texts[$lang]['welcome']; ?> <?php echo htmlspecialchars($userName); ?></span>
+                <a href="../auth/logout.php" class="logout-btn"><?php echo $texts[$lang]['logout']; ?></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <?php include '../includes/sidebar.php'; ?>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <?php
+            switch($currentPage) {
+                case 'farmers':
+                    include 'farmers.php';
+                    break;
+                case 'farms':
+                    include 'farms.php';
+                    break;
+                case 'damages':
+                    include 'damage.php';
+                    break;
+                case 'reports':
+                    include 'reports.php';
+                    break;
+                case 'settings':
+                    echo '<h2>إعدادات النظام</h2><p>صفحة الإعدادات قيد التطوير...</p>';
+                    break;
+                default:
+                    ?>
+                    <div class="dashboard-overview">
+                        <h2><?php echo $texts[$lang]['dashboard']; ?></h2>
+                        <div class="cards-grid">
+                            <div class="card">
+                                <i class="fas fa-users"></i>
+                                <h3><?php echo $texts[$lang]['farmers']; ?></h3>
+                                <p>إدارة بيانات المزارعين</p>
+                                <a href="?page=farmers" class="btn">عرض</a>
+                            </div>
+                            <div class="card">
+                                <i class="fas fa-seedling"></i>
+                                <h3><?php echo $texts[$lang]['farms']; ?></h3>
+                                <p>إدارة المزارع والأراضي</p>
+                                <a href="?page=farms" class="btn">عرض</a>
+                            </div>
+                            <div class="card">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <h3><?php echo $texts[$lang]['damages']; ?></h3>
+                                <p>تسجيل ومتابعة الأضرار</p>
+                                <a href="?page=damages" class="btn">عرض</a>
+                            </div>
+                            <div class="card">
+                                <i class="fas fa-chart-bar"></i>
+                                <h3><?php echo $texts[$lang]['reports']; ?></h3>
+                                <p>التقارير والإحصائيات</p>
+                                <a href="?page=reports" class="btn">عرض</a>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+            }
+            ?>
+        </main>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>l.min.css">
     
 </head>
 <body class="dashboard">
