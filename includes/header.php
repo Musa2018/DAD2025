@@ -1,5 +1,7 @@
 
 <?php
+// تجنب أي إخراج قبل session_start
+ob_start();
 if (!isset($_SESSION)) session_start();
 require_once __DIR__ . "/../config/translations.php";
 require_once __DIR__ . "/../includes/functions.php";

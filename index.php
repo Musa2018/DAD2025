@@ -35,12 +35,12 @@ require_once "includes/header.php";
 
     <div class="links">
         <a href="auth/forgot.php"><?php echo $texts[$lang]['forgot']; ?></a> |
-        <a href="auth/signup.php"><?php echo $texts[$lang]['register']; ?></a>
+        <a href="auth/signup.php"><?php echo $texts[$lang]['rregister']; ?></a>
+        </div>
+
+        <div class="lang">
+            <a href="lang.php"><?php echo $texts[$lang]['switch_lang']; ?></a>
+        </div>
     </div>
 
-    <div class="lang">
-        <a href="lang.php"><?php echo $texts[$lang]['switch_lang']; ?></a>
-    </div>
-</div>
-
-<?php require_once "includes/footer.php"; ?>
+<?php require_once "includes/footer.php"; ?>ire_once "includes/footer.php"; ?>

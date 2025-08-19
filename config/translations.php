@@ -1,124 +1,87 @@
 
 <?php
 // ملف الترجمات الأساسي
-if (!isset($_SESSION)) session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
-// إذا لم يتم تحديد اللغة بعد، استخدم العربية كافتراضي
+// تحديد اللغة الافتراضية
 if (!isset($_SESSION['lang'])) {
-    $_SESSION['lang'] = 'ar';
+    $_SESSION['lang'] = $_COOKIE['lang'] ?? 'ar';
 }
 
 $texts = [
     'ar' => [
-        // عام
         'app_title' => 'نظام إدارة الأضرار الزراعية',
         'dashboard' => 'لوحة التحكم',
-        'welcome' => 'مرحباً',
-        'logout' => 'تسجيل الخروج',
-        
-        // تسجيل الدخول
-        'login_title' => 'تسجيل الدخول',
-        'email' => 'البريد الإلكتروني',
-        'password' => 'كلمة المرور',
-        'login_btn' => 'دخول',
-        'forgot' => 'نسيت كلمة المرور؟',
-        'register' => 'إنشاء حساب جديد',
-        'error_login' => 'خطأ: بيانات الدخول غير صحيحة!',
-        'must_login' => 'يجب تسجيل الدخول أولاً',
-        'logout_success' => 'تم تسجيل الخروج بنجاح',
-        'switch_lang' => 'English',
-
-        // التسجيل
-        'username' => 'اسم المستخدم',
-        'phone' => 'رقم الجوال',
-        'register_btn' => 'تسجيل',
-        'all_fields_required' => 'جميع الحقول مطلوبة',
-        'email_or_phone_exists' => 'البريد الإلكتروني أو رقم الهاتف مستخدم بالفعل',
-        'register_success' => 'تم إنشاء الحساب بنجاح. تحقق من بريدك الإلكتروني.',
-        'register_error' => 'حدث خطأ أثناء إنشاء الحساب',
-        'governorate' => 'المحافظة',
-        'choose_governorate' => 'اختر المحافظة',
-        
-        // رموز التحقق واستعادة كلمة المرور
-        'verify_code_title' => 'رمز التحقق DAD_APP',
-        'verify_code_body' => 'رمز التحقق: ',
-        'reset_code_title' => 'كود استعادة كلمة المرور',
-        'reset_code_body' => 'كود الاستعادة: ',
-        'reset_code_sent' => 'تم إرسال كود الاستعادة إلى بريدك الإلكتروني.',
-        'email_not_found' => 'البريد الإلكتروني غير موجود.',
-        'send_reset_code' => 'إرسال كود الاستعادة',
-        'reset_code_wrong' => 'رمز الاستعادة غير صحيح',
-        'verify_btn' => 'تأكيد',
-        'passwords_not_match' => 'كلمتا المرور غير متطابقتين',
-        'password_reset_success' => 'تم تغيير كلمة المرور بنجاح. يمكنك الآن تسجيل الدخول.',
-        
-        // القوائم
-        'farmers' => 'المزارعون',
+        'farmers' => 'المزارعين',
         'farms' => 'المزارع',
         'damages' => 'الأضرار',
         'reports' => 'التقارير',
         'settings' => 'الإعدادات',
-        'docs' => 'التوثيق',
-        'damage_form' => 'استمارة الضرر',
-        'welcome_dashboard' => 'مرحباً بك في لوحة التحكم',
-        'dashboard_intro' => 'يمكنك إدارة جميع البيانات الخاصة بالمزارعين والمزارع والتقارير من هنا.',
-        'docs_page_desc' => 'صفحة التوثيق والمستندات الرسمية',
+        'login' => 'تسجيل الدخول',
+        'logout' => 'تسجيل الخروج',
+        'register' => 'التسجيل',
+        'forgot' => 'نسيان كلمة المرور',
+        'email' => 'البريد الإلكتروني',
+        'password' => 'كلمة المرور',
+        'name' => 'الاسم',
+        'phone' => 'رقم الهاتف',
+        'submit' => 'إرسال',
+        'cancel' => 'إلغاء',
+        'save' => 'حفظ',
+        'delete' => 'حذف',
+        'edit' => 'تعديل',
+        'add' => 'إضافة',
+        'search' => 'بحث',
+        'switch_lang' => 'English',
+        'welcome' => 'مرحباً',
+        'all_fields_required' => 'جميع الحقول مطلوبة',
+        'login_success' => 'تم تسجيل الدخول بنجاح',
+        'login_failed' => 'فشل في تسجيل الدخول',
+        'logout_success' => 'تم تسجيل الخروج بنجاح',
+        'email_not_found' => 'البريد الإلكتروني غير موجود',
+        'reset_code_title' => 'رمز الاستعادة',
+        'reset_code_body' => 'رمز الاستعادة الخاص بك هو: ',
+        'reset_code_wrong' => 'رمز الاستعادة غير صحيح',
+        'verify_btn' => 'تأكيد',
+        'password_reset_success' => 'تم تغيير كلمة المرور بنجاح'
     ],
-    
     'en' => [
-        // General
         'app_title' => 'Agricultural Damage Management System',
         'dashboard' => 'Dashboard',
-        'welcome' => 'Welcome',
-        'logout' => 'Logout',
-        
-        // Login
-        'login_title' => 'Login',
-        'email' => 'Email',
-        'password' => 'Password',
-        'login_btn' => 'Login',
-        'forgot' => 'Forgot Password?',
-        'register' => 'Create New Account',
-        'error_login' => 'Error: Invalid login credentials!',
-        'must_login' => 'You must login first',
-        'logout_success' => 'Logged out successfully',
-        'switch_lang' => 'العربية',
-
-        // Registration
-        'username' => 'Username',
-        'phone' => 'Phone Number',
-        'register_btn' => 'Register',
-        'all_fields_required' => 'All fields are required',
-        'email_or_phone_exists' => 'Email or phone number already exists',
-        'register_success' => 'Account created successfully. Check your email.',
-        'register_error' => 'Error occurred while creating account',
-        'governorate' => 'Governorate',
-        'choose_governorate' => 'Choose Governorate',
-        
-        // Verification and password reset
-        'verify_code_title' => 'DAD_APP Verification Code',
-        'verify_code_body' => 'Verification Code: ',
-        'reset_code_title' => 'Password Reset Code',
-        'reset_code_body' => 'Reset Code: ',
-        'reset_code_sent' => 'Reset code sent to your email.',
-        'email_not_found' => 'Email not found.',
-        'send_reset_code' => 'Send Reset Code',
-        'reset_code_wrong' => 'Invalid reset code',
-        'verify_btn' => 'Verify',
-        'passwords_not_match' => 'Passwords do not match',
-        'password_reset_success' => 'Password changed successfully. You can now login.',
-        
-        // Menus
         'farmers' => 'Farmers',
         'farms' => 'Farms',
         'damages' => 'Damages',
         'reports' => 'Reports',
         'settings' => 'Settings',
-        'docs' => 'Documentation',
-        'damage_form' => 'Damage Form',
-        'welcome_dashboard' => 'Welcome to Dashboard',
-        'dashboard_intro' => 'You can manage all data related to farmers, farms and reports from here.',
-        'docs_page_desc' => 'Documentation and official documents page',
+        'login' => 'Login',
+        'logout' => 'Logout',
+        'register' => 'Register',
+        'forgot' => 'Forgot Password',
+        'email' => 'Email',
+        'password' => 'Password',
+        'name' => 'Name',
+        'phone' => 'Phone',
+        'submit' => 'Submit',
+        'cancel' => 'Cancel',
+        'save' => 'Save',
+        'delete' => 'Delete',
+        'edit' => 'Edit',
+        'add' => 'Add',
+        'search' => 'Search',
+        'switch_lang' => 'العربية',
+        'welcome' => 'Welcome',
+        'all_fields_required' => 'All fields are required',
+        'login_success' => 'Login successful',
+        'login_failed' => 'Login failed',
+        'logout_success' => 'Logout successful',
+        'email_not_found' => 'Email not found',
+        'reset_code_title' => 'Reset Code',
+        'reset_code_body' => 'Your reset code is: ',
+        'reset_code_wrong' => 'Wrong reset code',
+        'verify_btn' => 'Verify',
+        'password_reset_success' => 'Password reset successful'
     ]
 ];
 ?>
