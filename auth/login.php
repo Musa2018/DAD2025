@@ -1,8 +1,8 @@
 <?php
 if (!isset($_SESSION)) session_start();
 
-include "../db.php";
-include "../functions.php";
+include "../config/database.php";
+include "../includes/functions.php";
 if (!isset($_SESSION)) session_start();
 
 $lang = $_SESSION['lang'] ?? 'ar';

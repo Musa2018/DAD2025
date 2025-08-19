@@ -1,5 +1,5 @@
 <?php
-require_once "../translations.php";
+require_once "../config/translations.php";
 if (!isset($_SESSION)) session_start();
 ?>
 <div class="page farmers-page">

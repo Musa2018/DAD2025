@@ -40,11 +40,10 @@ require_once "includes/header.php";
         <a href="auth/signup.php"><?php echo $texts[$lang]['rregister']; ?></a>
     </div>
 
-    <div class="lang">
+    <div >
         <a href="lang.php"><?php echo $texts[$lang]['switch_lang']; ?></a>
     </div>
 </div>
 
-<script src="assets/js/main.js"></script>
 
 <?php require_once "includes/footer.php"; ?>
