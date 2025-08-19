@@ -1,4 +1,3 @@
-
 <?php
 require_once "../config/translations.php";
 require_once "../includes/functions.php";
@@ -111,21 +110,21 @@ $currentPage = $_GET['page'] ?? null;
         const sidebar = document.querySelector('.sidebar');
 
         function loadPage(page, addToHistory = true) {
-            fetch('/pages/' + page + '.php')
+            if (!page) return; // تجاهل إذا ما في صفحة
+            fetch( page + '.php') // تعديل المسار إلى نسبي
                 .then(res => res.text())
                 .then(html => {
-                    contentDiv.innerHTML = '<div class="cards-grid"><div class="card">' + html + '</div></div>';
+                    contentDiv.innerHTML = html; // لا نغلف المحتوى داخل card
                     setActiveLink(page);
                     if(addToHistory) history.pushState({page:page}, '', '?page=' + page);
                 })
                 .catch(err => {
-                    contentDiv.innerHTML = '<div class="cards-grid"><div class="card"><p>حدث خطأ أثناء تحميل المحتوى.</p></div></div>';
+                    contentDiv.innerHTML = '<p>حدث خطأ أثناء تحميل المحتوى.</p>';
                     console.error(err);
                 });
         }
 
         function toggleSidebar() {
-            const sidebar = document.querySelector('.sidebar');
             sidebar.classList.toggle('collapsed');
             
             if (window.innerWidth <= 768) {
@@ -153,7 +152,7 @@ $currentPage = $_GET['page'] ?? null;
             });
         });
 
-        const initialPage = "<?php echo $currentPage; ?>";
+        const initialPage = <?php echo json_encode($currentPage); ?>;
         if(initialPage){
             loadPage(initialPage, false);
         }

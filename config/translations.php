@@ -48,7 +48,10 @@ $texts = [
         'docs' => 'الوثائق',
         'docs_page_desc' => 'صفحة الوثائق والإرشادات',
         'damage_form' => 'استمارة الأضرار',
-        'damage_page_desc' => 'إدارة استمارات الأضرار الزراعية'
+        'damage_page_desc' => 'إدارة استمارات الأضرار الزراعية',
+        'farmers_page_desc' => 'إدارة بيانات المزارعين',
+        'reports_page_desc' => 'إدارة التقارير',
+        'farms_page_desc' => 'إدارة بيانات المزارع'
     ],
     'en' => [
         'app_title' => 'Agricultural Damage Management System',
@@ -93,7 +96,10 @@ $texts = [
         'docs' => 'Documentation',
         'docs_page_desc' => 'Documentation and guidelines page',
         'damage_form' => 'Damage Form',
-        'damage_page_desc' => 'Agricultural damage forms management'
+        'damage_page_desc' => 'Agricultural damage forms management',
+        'farmers_page_desc' => 'Manage farmers data',
+        'reports_page_desc' => 'Manage reports data',
+        'farms_page_desc' => 'Manage farms data'
     ]
 ];
 ?>
