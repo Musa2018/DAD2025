@@ -1,14 +1,8 @@
 
 <?php
 // ملف الترجمات الأساسي
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-
 // تحديد اللغة الافتراضية
-if (!isset($_SESSION['lang'])) {
-    $_SESSION['lang'] = $_COOKIE['lang'] ?? 'ar';
-}
+$lang = $_SESSION['lang'] ?? $_COOKIE['lang'] ?? 'ar';
 
 $texts = [
     'ar' => [

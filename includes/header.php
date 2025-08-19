@@ -1,10 +1,15 @@
-
 <?php
-// تجنب أي إخراج قبل session_start
-ob_start();
-if (!isset($_SESSION)) session_start();
-require_once __DIR__ . "/../config/translations.php";
-require_once __DIR__ . "/../includes/functions.php";
+// بدء الجلسة أولاً
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+// تحديد المسار الأساسي وتضمين الملفات المطلوبة
+$base_url = $base_url ?? "";
+
+require_once $base_url . "config/database.php";
+require_once $base_url . "config/translations.php";
+require_once $base_url . "includes/functions.php";
 
 $lang = $_SESSION['lang'] ?? 'ar';
 $msgKey = $_GET['msg'] ?? '';
