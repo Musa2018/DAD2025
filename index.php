@@ -1,4 +1,6 @@
+
 <?php
+// بدء الجلسة وتحديد المتغيرات الأساسية
 $notAuth = true; // عدم حماية صفحة تسجيل الدخول
 $page_title = "تسجيل الدخول";
 $base_url = "";
@@ -9,7 +11,7 @@ require_once "includes/header.php";
 <div class="login-container">
     <h2><?php echo $texts[$lang]['login_title']; ?></h2>
 
-    <?php if($msg): ?>
+    <?php if(isset($msg) && $msg): ?>
         <div class="msg"><?php echo htmlspecialchars($msg); ?></div>
     <?php endif; ?>
 
@@ -36,11 +38,13 @@ require_once "includes/header.php";
     <div class="links">
         <a href="auth/forgot.php"><?php echo $texts[$lang]['forgot']; ?></a> |
         <a href="auth/signup.php"><?php echo $texts[$lang]['rregister']; ?></a>
-        </div>
-
-        <div class="lang">
-            <a href="lang.php"><?php echo $texts[$lang]['switch_lang']; ?></a>
-        </div>
     </div>
+
+    <div class="lang">
+        <a href="lang.php"><?php echo $texts[$lang]['switch_lang']; ?></a>
+    </div>
+</div>
+
+<script src="assets/js/main.js"></script>
 
 <?php require_once "includes/footer.php"; ?>

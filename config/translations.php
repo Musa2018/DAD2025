@@ -49,7 +49,12 @@ $texts = [
         'login_title' => 'تسجيل الدخول',
         'login_btn' => 'تسجيل الدخول',
         'rregister' => 'إنشاء حساب جديد',
-        'send_reset_code' => 'إرسال رمز الاستعادة'
+        'send_reset_code' => 'إرسال رمز الاستعادة',
+        'dashboard_intro' => 'يمكنك إدارة جميع البيانات الخاصة بالمزارعين والمزارع والتقارير من هنا.',
+        'docs' => 'الوثائق',
+        'docs_page_desc' => 'صفحة الوثائق والإرشادات',
+        'damage_form' => 'استمارة الأضرار',
+        'damage_page_desc' => 'إدارة استمارات الأضرار الزراعية'
     ],
     'en' => [
         'app_title' => 'Agricultural Damage Management System',
@@ -89,7 +94,12 @@ $texts = [
         'login_title' => 'Login',
         'login_btn' => 'Login',
         'rregister' => 'Create Account',
-        'send_reset_code' => 'Send Reset Code'
+        'send_reset_code' => 'Send Reset Code',
+        'dashboard_intro' => 'You can manage all data related to farmers, farms and reports from here.',
+        'docs' => 'Documentation',
+        'docs_page_desc' => 'Documentation and guidelines page',
+        'damage_form' => 'Damage Form',
+        'damage_page_desc' => 'Agricultural damage forms management'
     ]
 ];
 ?>

@@ -1,6 +1,7 @@
 <?php
-require_once "../translations.php";
+require_once "../config/translations.php";
 if (!isset($_SESSION)) session_start();
+$lang = $_SESSION['lang'] ?? 'ar';
 ?>
 <div class="page damage-page">
     <h2><?php echo $texts[$lang]['damage_form']; ?></h2>
