@@ -45,7 +45,11 @@ $texts = [
         'reset_code_body' => 'رمز الاستعادة الخاص بك هو: ',
         'reset_code_wrong' => 'رمز الاستعادة غير صحيح',
         'verify_btn' => 'تأكيد',
-        'password_reset_success' => 'تم تغيير كلمة المرور بنجاح'
+        'password_reset_success' => 'تم تغيير كلمة المرور بنجاح',
+        'login_title' => 'تسجيل الدخول',
+        'login_btn' => 'تسجيل الدخول',
+        'rregister' => 'إنشاء حساب جديد',
+        'send_reset_code' => 'إرسال رمز الاستعادة'
     ],
     'en' => [
         'app_title' => 'Agricultural Damage Management System',
@@ -81,7 +85,11 @@ $texts = [
         'reset_code_body' => 'Your reset code is: ',
         'reset_code_wrong' => 'Wrong reset code',
         'verify_btn' => 'Verify',
-        'password_reset_success' => 'Password reset successful'
+        'password_reset_success' => 'Password reset successful',
+        'login_title' => 'Login',
+        'login_btn' => 'Login',
+        'rregister' => 'Create Account',
+        'send_reset_code' => 'Send Reset Code'
     ]
 ];
 ?>
