@@ -1,5 +1,8 @@
 <?php
-// بدء الجلسة أولاً
+// منع أي إخراج قبل session_start
+ob_start();
+
+// بدء الجلسة إذا لم تكن مبدأة
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -14,6 +17,9 @@ require_once $base_url . "includes/functions.php";
 $lang = $_SESSION['lang'] ?? 'ar';
 $msgKey = $_GET['msg'] ?? '';
 $msg = $texts[$lang][$msgKey] ?? $msgKey;
+
+// تطهير المخزن المؤقت وإرسال المحتوى
+ob_end_clean();
 ?>
 <!doctype html>
 <html lang="<?php echo $lang; ?>" dir="<?php echo $lang === 'ar' ? 'rtl' : 'ltr'; ?>">
