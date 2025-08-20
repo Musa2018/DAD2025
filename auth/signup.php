@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title><?php echo $texts[$lang]['register']; ?></title>
     <link rel="stylesheet" href="../assets/style.css">
 </head>
-<body>
+<body class="signup">
     <div class="signup-container">
         <h2><?php echo $texts[$lang]['register']; ?></h2>
         <?php if($msg): ?>

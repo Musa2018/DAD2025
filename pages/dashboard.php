@@ -42,8 +42,8 @@ $currentPage = $_GET['page'] ?? null;
 
 <div class="main-content" id="content">
     <?php if (!$currentPage): ?>
-        <div class="cards-grid">
-            <div class="card">
+        <div class="">
+            <div  class="">
                 <h2><?php echo $texts[$lang]['welcome_dashboard'] ?? 'مرحباً بك في لوحة التحكم'; ?>, <?php echo htmlspecialchars($userName); ?></h2>
                 <p><?php echo $texts[$lang]['dashboard_intro'] ?? 'يمكنك إدارة جميع البيانات الخاصة بالمزارعين والمزارع والتقارير من هنا.'; ?></p>
             </div>
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(res => res.text())
             .then(html => {
                 // لف المحتوى داخل div.cards-grid > div.card
-                contentDiv.innerHTML = '<div class="cards-grid"><div class="card">' + html + '</div></div>';
+                contentDiv.innerHTML = '<div ><div >' + html + '</div></div>';
                 setActiveLink(page);
                 if(addToHistory) history.pushState({page:page}, '', '?page=' + page);
             })

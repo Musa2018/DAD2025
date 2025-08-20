@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title><?php echo $texts[$lang]['reset_code_title'] ?? 'رمز الاستعادة'; ?></title>
     <link rel="stylesheet" href="../assets/style.css">
 </head>
-<body>
+<body class="login">
     <div class="login-container">
         <h2><?php echo $texts[$lang]['reset_code_title'] ?? 'رمز الاستعادة'; ?></h2>
         <?php if($msg): ?>

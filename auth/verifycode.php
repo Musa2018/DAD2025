@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>التحقق من البريد الإلكتروني</title>
     <link rel="stylesheet" href="../assets/style.css">
 </head>
-<body>
+<body class="signup">
     <div class="signup-container">
         <h2>التحقق من البريد الإلكتروني</h2>
         <?php if($msg): ?>
